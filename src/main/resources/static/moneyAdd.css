@@ -1,0 +1,32 @@
+#first{
+    text-align: center;
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    width:50%
+}
+#secound {
+    text-align: center;
+    float: right;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    width: 50%;
+}
+.choice{
+    padding: 1%;
+border-style: outset;
+    width: 80%;
+    border-color:  green;
+    background:  #12b30a;
+}
+.choice:hover{
+    border-style: solid;
+    border-color: #2a910d;
+    background: #2a910d;
+    transform:scale(1.2,1.2);
+    transition: 1s;
+}
+
+
