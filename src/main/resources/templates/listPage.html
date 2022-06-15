@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Money Saver</title>
@@ -20,6 +20,31 @@
                         <!--            </div>-->
                         <div class="col-md-6 col-lg-7 d-flex align-items-center">
                             <div class="card-body p-4 p-lg-5 text-black"  >
+
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                    <tr class="bg-success">
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Delete</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="money : ${moneyList}">
+                                        <td th:text="${money.id}">ID</td>
+                                        <td th:text="${money.price}">Price</td>
+                                        <td th:text="${money.description}">Description</td>
+                                        <td th:text="${money.date_created}">Date</td>
+                                        <td>
+                                            <a th:href="@{'/delete/' + ${money.id}}">Delete</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+
 
                             </div>
                         </div>

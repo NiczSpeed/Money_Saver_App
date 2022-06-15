@@ -12,6 +12,7 @@ public class MoneyService {
     @Autowired
     private UserRepository userRepository;
 
+
     public List<money> listAll(){
         return userRepository.findAll();
     }
