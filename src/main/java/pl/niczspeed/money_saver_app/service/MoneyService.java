@@ -30,12 +30,18 @@ public class MoneyService {
         moneyRepository.save(std);
     }
 
-    public float expenditure(){
-       return moneyRepository.getMoneySumExpenditure();
+    public Float expenditure(){
+
+        if(moneyRepository.getMoneySumExpenditure()==null) return (float) 0;
+
+       else return moneyRepository.getMoneySumExpenditure();
     }
 
-    public float profit(){
-        return moneyRepository.getMoneySumProfit();
+    public Float profit(){
+
+        if(moneyRepository.getMoneySumProfit()==null) return (float) 0;
+
+       else return moneyRepository.getMoneySumProfit();
     }
 
 }

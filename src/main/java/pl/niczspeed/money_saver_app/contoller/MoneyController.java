@@ -20,8 +20,8 @@ public class MoneyController {
 
     @RequestMapping("/")
     public String indexPage(Model model) {
-        float expenditureValue = moneyService.expenditure();
-        float profitValue = moneyService.profit();
+        Float expenditureValue = moneyService.expenditure();
+        Float profitValue = moneyService.profit();
         model.addAttribute("expenditureValue", expenditureValue);
         model.addAttribute("profitValue", profitValue);
         return "moneyAdd";
@@ -31,8 +31,8 @@ public class MoneyController {
     @PostMapping("/saveFile")
     public String saveData(money userData, Model model) {
         moneyService.save(userData);
-        float expenditureValue = moneyService.expenditure();
-        float profitValue = moneyService.profit();
+        Float expenditureValue = moneyService.expenditure();
+        Float profitValue = moneyService.profit();
         model.addAttribute("expenditureValue", expenditureValue);
         model.addAttribute("profitValue", profitValue);
         return "moneyAdd";

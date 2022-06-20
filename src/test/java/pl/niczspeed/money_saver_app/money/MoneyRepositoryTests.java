@@ -33,9 +33,11 @@ public class MoneyRepositoryTests {
 
     @Test
     public void getMoneySumProfitTest(){
-        float profitMoney = moneyRepository.getMoneySumProfit();
+        Float profitMoney = moneyRepository.getMoneySumProfit();
         System.out.println(profitMoney);
     }
+
+
 
 
 }
