@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import pl.niczspeed.money_saver_app.model.money;
-import pl.niczspeed.money_saver_app.repository.UserRepository;
 import pl.niczspeed.money_saver_app.service.MoneyService;
 
 import java.time.LocalDate;
@@ -20,14 +19,22 @@ public class MoneyController {
     private MoneyService moneyService;
 
     @RequestMapping("/")
-    public String indexPage() {
+    public String indexPage(Model model) {
+        float expenditureValue = moneyService.expenditure();
+        float profitValue = moneyService.profit();
+        model.addAttribute("expenditureValue", expenditureValue);
+        model.addAttribute("profitValue", profitValue);
         return "moneyAdd";
     }
 
 
     @PostMapping("/saveFile")
-    public String saveData(money userData) {
+    public String saveData(money userData, Model model) {
         moneyService.save(userData);
+        float expenditureValue = moneyService.expenditure();
+        float profitValue = moneyService.profit();
+        model.addAttribute("expenditureValue", expenditureValue);
+        model.addAttribute("profitValue", profitValue);
         return "moneyAdd";
     }
 
@@ -35,7 +42,6 @@ public class MoneyController {
     public String listPage(Model model){
         List<money> moneyList = moneyService.listAll();
         model.addAttribute("moneyList", moneyList);
-        System.out.println("Get / ");
         return "listPage";
     }
 
@@ -44,6 +50,7 @@ public class MoneyController {
         moneyService.delete(id);
         return "redirect:/";
     }
+
 
 
 }

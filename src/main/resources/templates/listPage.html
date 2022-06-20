@@ -11,20 +11,14 @@
 <section class="vh-100" style="background-color: #12b30a;">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col col-xl-10">
                 <div class="card" style="border-radius: 1rem;">
                     <div class="row g-0">
-                        <!--            <div class="col-md-6 col-lg-5 d-none d-md-block">-->
-                        <!--              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"-->
-                        <!--                   alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />-->
-                        <!--            </div>-->
-                        <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                      <div style="text-align: center;">  <div class="col-md-6 col-lg-7 d-flex align-items-center">
                             <div class="card-body p-4 p-lg-5 text-black"  >
 
                                 <table class="table">
                                     <thead class="thead-dark">
                                     <tr class="bg-success">
-                                        <th scope="col">ID</th>
                                         <th scope="col">Price</th>
                                         <th scope="col">Description</th>
                                         <th scope="col">Date</th>
@@ -33,10 +27,9 @@
                                     </thead>
                                     <tbody>
                                     <tr th:each="money : ${moneyList}">
-                                        <td th:text="${money.id}">ID</td>
-                                        <td th:text="${money.price}">Price</td>
+                                        <td th:text="${money.price} + zł">Price</td>
                                         <td th:text="${money.description}">Description</td>
-                                        <td th:text="${money.date_created}">Date</td>
+                                        <td th:text="${money.date}">Date</td>
                                         <td>
                                             <a th:href="@{'/delete/' + ${money.id}}">Delete</a>
                                         </td>
@@ -44,17 +37,12 @@
                                     </tbody>
                                 </table>
 
-
-
                             </div>
                         </div>
                         <div style="text-align: center; padding: 5%" class="container">
                             <div class="row">
-                                <div class="col-sm">
-                                    One of three columns
-                                </div>
                                 <div class="col-sm" >
-                                    <a href="/">Link</a>
+                                    <a href="/">Go to Home Page</a>
                                 </div>
                             </div>
                         </div>
@@ -62,7 +50,7 @@
                 </div>
             </div>
         </div>
-    </div>
+
 
 
 </section>

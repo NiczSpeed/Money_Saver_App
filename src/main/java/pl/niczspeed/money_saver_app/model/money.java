@@ -8,7 +8,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.text.SimpleDateFormat;
 
 @Entity
 @Getter
@@ -33,8 +32,8 @@ public class money {
     private String role;
 
     @JsonFormat(pattern = "YYYY-MM-dd", shape = JsonFormat.Shape.STRING)
-    @Column(name= "date_created")
-    private Date date_created;
+    @Column(name= "date")
+    private Date date;
 
 
 
