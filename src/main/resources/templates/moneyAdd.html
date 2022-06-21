@@ -31,7 +31,78 @@
         width: 50%;
     }
 
+    @import url('https://fonts.googleapis.com/css?family=Lato:400,500,600,700&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Lato', sans-serif;
+    }
+    .col-sm{
+        display: inline-flex;
+        height: 80px;
+        width: 80%;
+        align-items: center;
+        text-align: center;
+        padding: 20px 15px;
 
+    }
+    .col-sm .option{
+        background: #fff;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin: 0 10px;
+        border-radius: 1em;
+        cursor: pointer;
+        padding: 0 10px;
+        border: 2px solid lightgrey;
+        transition: all 0.3s ease;
+    }
+    .col-sm .option .dot{
+        height: 20px;
+        width: 20px;
+        background: #d9d9d9;
+        border-radius: 50%;
+        position: relative;
+    }
+    .col-sm .option .dot::before{
+        position: absolute;
+        content: "";
+        top: 4px;
+        left: 4px;
+        width: 12px;
+        height: 12px;
+        background: green;
+        border-radius: 50%;
+        opacity: 0;
+        transform: scale(1.5);
+        transition: all 0.3s ease;
+    }
+    input[type="radio"]{
+        display: none;
+    }
+    #option-1:checked:checked ~ .option-1,
+    #option-2:checked:checked ~ .option-2{
+        border-color: green;
+        background: #12b30a;
+    }
+
+    #option-1:checked:checked ~ .option-1 .dot::before,
+    #option-2:checked:checked ~ .option-2 .dot::before{
+        opacity: 2;
+        transform: scale(1);
+    }
+    .col-sm .option span{
+        font-size: 130%;
+        color: #808080;
+    }
+    #option-1:checked:checked ~ .option-1 span,
+    #option-2:checked:checked ~ .option-2 span{
+        color: #fff;
+    }
 
 
 </style>
@@ -73,27 +144,22 @@
                                         <label class="form-label" for="form2Example27"></label>
                                     </div>
 
-                                    <div  style="text-align: center; float: left; margin-left: auto; margin-right: auto; height: auto; width: 50%"
-                                         class="form-outline mb-4" id="first">
-                                        <label style="padding: 1%; border-style: outset; width: 80%; border-color: green; background-color: #12b30a; border-radius: 1rem "
-                                               class="choice">
-                                            <input type="radio" name="role" value="expenditure" class="choice"
-                                                   autocomplete="off" checked>
-                                            Expenditure
+                                    <div class="col-sm">
+                                        <input type="radio" name="role" id="option-1" value="expenditure" checked>
+                                        <input type="radio" name="role" id="option-2"  value="profit">
+                                        <label for="option-1" class="option option-1">
+                                            <div class="dot"></div>
+                                            <span>Expenditure</span>
                                         </label>
-                                    </div>
-                                    <div style="text-align: center; float: right; margin-left: auto; margin-right: auto; height: auto; width: 50%"
-                                         class="form-outline mb-4" id="secound">
-                                        <label style="padding: 1%; border-style: outset; width: 80%; border-color: green; background-color: #12b30a; border-radius: 1rem"
-                                               class="choice">
-                                            <input type="radio" name="role" value="profit" class="choice"
-                                                   autocomplete="off">
-                                            Profit
+                                        <label for="option-2" class="option option-2">
+                                            <div class="dot"></div>
+                                            <span>Profit</span>
                                         </label>
                                     </div>
 
+
                                     <div class="pt-1 mb-4">
-                                        <input type="submit" class="btn btn-dark btn-lg btn-block" value="save"></input>
+                                        <input type="submit" class="btn btn-dark btn-lg btn-block" value="save" style="width: 90%; background-image: linear-gradient(to bottom right,#646464,black)">
                                     </div>
 
                                 </form>
@@ -108,7 +174,7 @@
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td th:text="${expenditureValue} + zł">SUM Expenditure</td>
+                                            <td th:text="${expenditureValue} +' zł'">SUM Expenditure</td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -120,7 +186,7 @@
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td th:text="${profitValue} + zł">SUM Profit</td>
+                                            <td th:text="${profitValue} +' zł'">SUM Profit</td>
                                         </tr>
                                         </tbody>
                                     </table>
